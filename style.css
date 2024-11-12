@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 10px;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 1500px; /* Limit the container width */
+}
+
+.title {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: "Dancing Script", cursive;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap; /* Ensure controls wrap on smaller screens */
+    margin-bottom: 20px;
+}
+
+.dropdown, .filter-button, .reset-button, .input-text {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.filter-button, .reset-button {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.filter-button:hover, .reset-button:hover {
+    background-color: #e0e0e0;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    width: 220px;
+    height: 300px;
+    perspective: 1000px;
+    margin-top: 50px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.54) 0px 3px 8px;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    font-size: 0.9em;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Details button on the back */
+.details-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: white;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+}
+
+.close-button {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.popImg {
+    width: 100%;
+    height: auto;
+}
+
+.type {
+    margin-top: 10px;
+    background-color: #fff;
+    color: #333;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.pokemonID {
+    width: 100%;
+    margin-top: 10px;
+    background-color: #fff;
+    color: #333;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+/* Media Queries */
+
+/* For screens 768px and below (Tablets and small screens) */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .controls {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .card-container {
+        gap: 15px;
+    }
+
+    .card {
+        width: 180px;
+        height: 250px;
+    }
+
+    .modal-content {
+        width: 80%;
+    }
+}
+
+/* For screens 480px and below (Mobile devices) */
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .controls {
+        gap: 10px;
+        flex-direction: column;
+    }
+
+    .dropdown, .filter-button, .reset-button, .input-text {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .card-container {
+        gap: 10px;
+    }
+
+    .card {
+        width: 160px;
+        height: 220px;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
+
+/* For screens 1024px and above (Large Tablets and Small Desktops) */
+@media (min-width: 1024px) {
+    .card {
+        width: 240px;
+        height: 320px;
+    }
+}
